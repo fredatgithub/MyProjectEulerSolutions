@@ -32,7 +32,17 @@ namespace MyProjectEulerSolutions
       }
 
       long somme = 0;
+      foreach (var item in multipleDeCinq)
+      {
+        somme += item;
+      }
 
+      foreach (var item in multipleDeTrois)
+      {
+        somme += item;
+      }
+
+      Console.WriteLine($"La somme des multiple de 3 et de 5 inférieur à 1000 est de : {somme}");
       Console.WriteLine("Fin des traitements");
       Console.ReadKey();
     }
