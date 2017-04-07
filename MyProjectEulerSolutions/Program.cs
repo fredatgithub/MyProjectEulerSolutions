@@ -54,6 +54,7 @@ namespace MyProjectEulerSolutions
       int max = 4000000;
       var limit = 10000;
       var outNumber = 1;
+      long result = 1;
       int[] list = new int[limit];
       list[0] = 1;
       list[1] = 2;
@@ -78,9 +79,40 @@ namespace MyProjectEulerSolutions
       }
 
       list = null;
-      
+      for (int i = 0; i < list2.Length; i = i + 2)
+      {
+        result += list2[i];
+      }
+
+      Display($"The sum of even value lesser than 4 millions is {result}");
+      Display("---------------------------------------------------------------------");
+      Display("Problème 3");
+      /*
+       The prime factors of 13195 are 5, 7, 13 and 29.
+       What is the largest prime factor of the number 600851475143 ?
+      */
+      long number3 = 600851475143;
+      List<long> list3 = new List<long>();
+      list3 = GetDivisors(number3);
+      Display($"The largest prime factor of the number 600851475143 is {list3.ToList().Max()}");
+
+
       Display("Fin des traitements");
       Console.ReadKey();
+    }
+
+    private static List<long> GetDivisors(long number)
+    {
+      List<long> result = new List<long>();
+      for (long i = 3; i < number; i = i + 2)
+      {
+        if (number % i == 0)
+        {
+          result.Add(i);
+        }
+      }
+
+      return result;
     }
   }
 }
