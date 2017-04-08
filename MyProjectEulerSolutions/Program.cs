@@ -132,7 +132,7 @@ namespace MyProjectEulerSolutions
        
        What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
        */
-      int maxValue = 50000000;
+      int maxValue = 5000;
       int result5 = 0;
       for (int i = 20; i < maxValue; i++)
       {
@@ -151,15 +151,70 @@ namespace MyProjectEulerSolutions
           result5 = i;
           break;
         }
-        Display($"i={i}");
+        //Display($"i={i}");
       }
 
       Display($"The smallest positive number that is evenly divisible by all of the numbers from 1 to 20 is {result5}");
       Display("---------------------------------------------------------------------");
       Display("Problem 6");
+      /*
+       The sum of the squares of the first ten natural numbers is,
+       1^2 + 2^2 + ... + 10^2 = 385
+       The square of the sum of the first ten natural numbers is,
+       (1 + 2 + ... + 10)^2 = 552 = 3025
+       Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+       Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+       */
+      long result6 = 0;
+
+      Display($"The difference between the sum of the squares of the first one hundred natural numbers and the square of the sum is {result6}");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 7");
+      /*
+       By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+       What is the 10 001st prime number?
+       */
+      int tenThousandAndOnePrimeCounter = 1;
+      int counter = 3;
+      while (tenThousandAndOnePrimeCounter != 10001)
+      {
+        if (IsPrime(counter))
+        {
+          tenThousandAndOnePrimeCounter++;
+        }
+
+        Display($"Number of prime found so far: {tenThousandAndOnePrimeCounter} and prime being checked: {counter}");
+        counter = counter + 2;
+      }
+
+      Display($"The 10 001st prime number is {counter}");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 8");
 
       Display("End of problems");
       Console.ReadKey();
+    }
+
+    private static bool IsPrime(int number)
+    {
+      bool result = true;
+      if (number == 2) return true;
+      
+      if (number % 2 == 0)
+      {
+        return false;
+      }
+
+      for (int i = 3; i < number; i = i + 2)
+      {
+        if (number % i == 0)
+        {
+          result = false;
+          break;
+        }
+      }
+
+      return result;
     }
 
     private static bool IsPalindrome(int number)
