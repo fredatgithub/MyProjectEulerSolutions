@@ -94,21 +94,77 @@ namespace MyProjectEulerSolutions
       long number3 = 600851475143;
       List<long> list3 = new List<long>();
       //list3 = GetDivisors(number3);
-      for (long i = 3; i < number3; i = i + 2)
-      {
-        if (number3 % i == 0)
-        {
-          list3.Add(i);
-        }
+      //for (long i = 3; i < number3; i = i + 2)
+      //{
+      //  if (number3 % i == 0)
+      //  {
+      //    list3.Add(i);
+      //  }
 
-        //Console.WriteLine(i);
+      //  //Console.WriteLine(i);
+      //}
+
+      //Display($"The largest prime factor of the number 600851475143 is {list3.ToList().Max()}");
+      Display("The largest prime factor of the number 600851475143 is being calculated");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 4");
+      /*
+       A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+       Find the largest palindrome made from the product of two 3-digit number
+       */
+      List<int> list4 = new List<int>();
+      for (int i = 999; i >= 100; i--)
+      {
+        for (int j = 999; j >= 100; j--)
+        {
+          if (IsPalindrome(i * j))
+          {
+            list4.Add(i * j);
+          }
+        }
       }
 
-      Display($"The largest prime factor of the number 600851475143 is {list3.ToList().Max()}");
+      Display($"The largest palindrome made from the product of two 3-digit number is {list4.ToList().Max()}");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 5");
+      /*
+       2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+       
+       What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+       */
+      int maxValue = 50000000;
+      int result5 = 0;
+      for (int i = 20; i < maxValue; i++)
+      {
+        bool divisor = true;
+        for (int j = 1; j < 21; j++)
+        {
+          if (i % j != 0)
+          {
+            divisor = false;
+            break;
+          }
+        }
 
+        if (divisor)
+        {
+          result5 = i;
+          break;
+        }
+        Display($"i={i}");
+      }
+
+      Display($"The smallest positive number that is evenly divisible by all of the numbers from 1 to 20 is {result5}");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 6");
 
       Display("End of problems");
       Console.ReadKey();
+    }
+
+    private static bool IsPalindrome(int number)
+    {
+      return number.ToString() == new string(number.ToString().Reverse().ToArray());
     }
 
     private static List<long> GetDivisors(long number)
