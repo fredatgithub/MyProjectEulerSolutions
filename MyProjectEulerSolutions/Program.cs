@@ -225,6 +225,37 @@ namespace MyProjectEulerSolutions
       Display($"The thirteen adjacent digits in the 1000-digit number that have the greatest product is {list8.ToList().Max()}");
       Display("---------------------------------------------------------------------");
       Display("Problem 9");
+      /*
+       A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+        a2 + b2 = c2
+       For example, 32 + 42 = 9 + 16 = 25 = 52.
+       There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+       Find the product abc.
+       */
+      int result9 = 0;
+      for (int a = 0; a < 1001; a++)
+      {
+        for (int b = 1; b < 1000; b++)
+        {
+          for (int c = 2; c < 1000; c++)
+          {
+            if (a + b + c == 1000)
+            {
+              result9 = a * b * c;
+              break;
+            }
+          }
+
+          if (result9 != 0) break;
+        }
+
+        if (result9 != 0) break;
+      }
+
+      Display($"Find the product abc of the Pythagorean triplet for which a + b + c = 1000 is {result9}");
+      Display("---------------------------------------------------------------------");
+      Display("Problem 10");
+
 
       Display("End of problems");
       Console.ReadKey();
