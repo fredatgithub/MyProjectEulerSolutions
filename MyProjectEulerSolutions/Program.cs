@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MyProjectEulerSolutions
 {
-  class Program
+  public class Program
   {
     static void Main(string[] args)
     {
@@ -334,30 +334,40 @@ namespace MyProjectEulerSolutions
        NOTE: Once the chain starts the terms are allowed to go above one million.
        */
 
-      int cursor = 0;
       var dico14 = new Dictionary<int, string>();
-      var max = 15;
-      for (int i = 1; i < max; i++)
+      var max15 = 1000;
+      for (int i = 1; i < max15; i++)
       {
-        string result14 = string.Empty;
-        while (i != 1)
-        {
-          result14 += i + "-";
-          i = FunctionProblem14(i);
-        }
-
-        result14 += i;
-        dico14[cursor++] = result14;
+        dico14[i] = GetSeries14(i);
       }
 
-      Display($"The starting number, under one million, which produces the longest chain is xxx");
+
+      Display($"The starting number, under one million, which produces the longest chain is {dico14.Values.Max()}");
       Display("---------------------------------------------------------------------");
       Display("Problem 15");
+      /*
+        
+       */
+
       Display("End of problems");
       Console.ReadKey();
     }
 
-    private static int FunctionProblem14(int number)
+    public static string GetSeries14(int number)
+    {
+      if (number == 1) return "1";
+      string result14 = string.Empty;
+      while (number != 1)
+      {
+        result14 += number + "-";
+        number = FunctionProblem14(number);
+      }
+
+      result14 += number;
+      return result14;
+    }
+
+    public static int FunctionProblem14(int number)
     {
       if (number % 2 == 0) // even
       {
