@@ -426,6 +426,23 @@ namespace MyProjectEulerSolutions
       Display($"The sum of all the numbers that can be written as the sum of fifth powers of their digits  is {result30Final}");
       Display("---------------------------------------------------------------------");
       Display("Problem 31");
+      /*
+         In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
+         1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
+         It is possible to make £2 in the following way:
+         1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
+         How many different ways can £2 be made using any number of coins?
+       */
+      var pences = new List<int> {200, 100, 50, 20, 10, 5, 2, 1};
+      var result31 = new List<string>();
+      int searchedValue = 200;
+      // Let's calculate by hand to get an idea of the algorithm
+      // By hand it would be something like
+      result31.Add("1x200");
+      result31.Add("2x100");
+      result31.Add("1x100+2x50");
+      result31.Add("1x100+5x20");
+
 
       Display("End of problems");
       Console.ReadKey();
