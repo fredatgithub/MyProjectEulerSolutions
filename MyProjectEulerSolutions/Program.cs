@@ -442,6 +442,40 @@ namespace MyProjectEulerSolutions
       result31.Add("2x100");
       result31.Add("1x100+2x50");
       result31.Add("1x100+5x20");
+      result31.Add("1x100+1x50+2x20+1x10");
+      result31.Add("1x100+1x50+1x20+3x10");
+      result31.Add("1x100+1x50+1x20+2x10+2x5");
+      result31.Add("1x100+1x50+1x20+2x10+1x5+2x2+1x1");
+      result31.Add("1x100+1x50+1x20+2x10+1x5+1x2+3x1");
+      result31.Add("1x100+1x50+1x20+1x10+4x5");
+      List<int> divisorList = new List<int>();
+      int factorMin = searchedValue / pences.Max(); // 1
+      int factorMax = searchedValue / pences.Min(); // 200
+      foreach (int number in pences)
+      {
+        string tmpString = string.Empty;
+        int tmpNumber = 0;
+        int tmpTotal = 0;
+        int tmpCounter = factorMin;
+        while (tmpCounter <= factorMax)
+        {
+
+        }
+      }
+      while (true)
+      {
+        string tmpString = string.Empty;
+        int tmpTotal = 0;
+        int tmpCounter = 1;
+        foreach (int number in pences)
+        {
+          while (tmpTotal < searchedValue)
+          {
+            tmpTotal += number * tmpCounter;
+            tmpString = $"{number} x {tmpCounter} + "; 
+          }
+        }
+      }
 
 
       Display("End of problems");
