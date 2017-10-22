@@ -60,7 +60,7 @@ namespace MyProjectEulerSolutions
       list[1] = 2;
       for (int i = 2; i < limit; i++)
       {
-        var number = list[i-1] + list[i-2];
+        var number = list[i - 1] + list[i - 2];
         if (number < max)
         {
           list[i] = number;
@@ -363,7 +363,7 @@ namespace MyProjectEulerSolutions
       var result29 = new List<double>();
       double[,] array29 = new double[101, 101];
 
-      for (int a = 2 ; a < 101; a++)
+      for (int a = 2; a < 101; a++)
       {
         for (int b = 2; b < 101; b++)
         {
@@ -379,7 +379,7 @@ namespace MyProjectEulerSolutions
           {
             result29.Add(array29[a, b]);
           }
-          
+
         }
       }
 
@@ -433,7 +433,7 @@ namespace MyProjectEulerSolutions
          1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
          How many different ways can £2 be made using any number of coins?
        */
-      var pences = new List<int> {200, 100, 50, 20, 10, 5, 2, 1};
+      var pences = new List<int> { 200, 100, 50, 20, 10, 5, 2, 1 };
       var result31 = new List<string>();
       int searchedValue = 200;
       // Let's calculate by hand to get an idea of the algorithm
@@ -472,7 +472,7 @@ namespace MyProjectEulerSolutions
           while (tmpTotal < searchedValue)
           {
             tmpTotal += number * tmpCounter;
-            tmpString = $"{number} x {tmpCounter} + "; 
+            tmpString = $"{number} x {tmpCounter} + ";
           }
         }
       }
@@ -505,7 +505,7 @@ namespace MyProjectEulerSolutions
       else
       {
         // number is odd
-        return (3 * number) +1;
+        return (3 * number) + 1;
       }
     }
 
@@ -524,7 +524,7 @@ namespace MyProjectEulerSolutions
     {
       bool result = true;
       if (number == 2) return true;
-      
+
       if (number % 2 == 0)
       {
         return false;
