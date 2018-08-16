@@ -114,7 +114,7 @@ namespace Problem31
         {
           foreach (string item in result31)
           {
-            sw.WriteLine(item);
+            sw.WriteLine($"200 = {item}");
           }
         }
       }
