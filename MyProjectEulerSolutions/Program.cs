@@ -451,31 +451,65 @@ namespace MyProjectEulerSolutions
       List<int> divisorList = new List<int>();
       int factorMin = searchedValue / pences.Max(); // 1
       int factorMax = searchedValue / pences.Min(); // 200
-      foreach (int number in pences)
+      // 200p cannot go higher than 1 because 1 * 200 = 200
+      // 1p cannot go higher than 200 because 200 * 1 = 200
+      // so make a for loop for each coins
+      ulong counter31 = 0;
+      for (int a = 1; a < 201; a++)
       {
-        string tmpString = string.Empty;
-        int tmpNumber = 0;
-        int tmpTotal = 0;
-        int tmpCounter = factorMin;
-        while (tmpCounter <= factorMax)
+        for (int b = 1; b < 201; b++)
         {
-
-        }
-      }
-      while (true)
-      {
-        string tmpString = string.Empty;
-        int tmpTotal = 0;
-        int tmpCounter = 1;
-        foreach (int number in pences)
-        {
-          while (tmpTotal < searchedValue)
+          for (int c = 1; c < 201; c++)
           {
-            tmpTotal += number * tmpCounter;
-            tmpString = $"{number} x {tmpCounter} + ";
+            for (int d = 1; d < 201; d++)
+            {
+              for (int e = 1; e < 201; e++)
+              {
+                for (int f = 1; f < 201; f++)
+                {
+                  for (int g = 1; g < 201; g++)
+                  {
+                    for (int h = 1; h < 201; h++)
+                    {
+                      Console.WriteLine($"a={a}-b={b}-c={c}-d={d}-e={e}-f={f}-g={g}-h={h}--counter={counter31}");
+                      if ((a*200)+(b*100)+(c*50)+(d*20)+(e*10)+(f*5)+(g*2)+(h*1) == 200)
+                      {
+                        result31.Add($"a={a}-b={b}-c={c}-d={d}-e={e}-f={f}-g={g}-h={h}");
+                        counter31++;
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
+      //foreach (int number in pences)
+      //{
+      //  string tmpString = string.Empty;
+      //  int tmpNumber = 0;
+      //  int tmpTotal = 0;
+      //  int tmpCounter = factorMin;
+      //  while (tmpCounter <= factorMax)
+      //  {
+
+      //  }
+      //}
+      //while (true)
+      //{
+      //  string tmpString = string.Empty;
+      //  int tmpTotal = 0;
+      //  int tmpCounter = 1;
+      //  foreach (int number in pences)
+      //  {
+      //    while (tmpTotal < searchedValue)
+      //    {
+      //      tmpTotal += number * tmpCounter;
+      //      tmpString = $"{number} x {tmpCounter} + ";
+      //    }
+      //  }
+      //}
 
 
       Display("End of problems");
