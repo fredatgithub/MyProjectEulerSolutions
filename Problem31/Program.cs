@@ -41,53 +41,61 @@ namespace Problem31
       // 1p cannot go higher than 200 because 200 * 1 = 200
       // so make a for loop for each coins
       ulong counter31 = 0;
+      int a1 = Properties.Settings.Default.Loop1;
+      int a2 = Properties.Settings.Default.Loop2;
+      int a3 = Properties.Settings.Default.Loop3;
+      int a4 = Properties.Settings.Default.Loop4;
+      int a5 = Properties.Settings.Default.Loop5;
+      int a6 = Properties.Settings.Default.Loop6;
+      int a7 = Properties.Settings.Default.Loop7;
+      int a8 = Properties.Settings.Default.Loop8;
 
-      for (int a = Properties.Settings.Default.Loop1; a < 201; a++)
+      for (int a = a1; a < 201; a++)
       {
 
-        for (int b = Properties.Settings.Default.Loop2; b < 201; b++)
+        for (int b = a2; b < 201; b++)
         {
           //if ((a * 200) + (b * 100) > 200)
           //{
           //  break;
           //}
 
-          for (int c = Properties.Settings.Default.Loop3; c < 201; c++)
+          for (int c = a3; c < 201; c++)
           {
             //if ((a * 200) + (b * 100) + (c * 50) > 200)
             //{
             //  break;
             //}
 
-            for (int d = Properties.Settings.Default.Loop4; d < 201; d++)
+            for (int d = a4; d < 201; d++)
             {
               //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) > 200)
               //{
               //  break;
               //}
 
-              for (int e = Properties.Settings.Default.Loop5; e < 201; e++)
+              for (int e = a5; e < 201; e++)
               {
                 //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) > 200)
                 //{
                 //  break;
                 //}
 
-                for (int f = Properties.Settings.Default.Loop6; f < 201; f++)
+                for (int f = a6; f < 201; f++)
                 {
                   //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5)  > 200)
                   //{
                   //  break;
                   //}
 
-                  for (int g = Properties.Settings.Default.Loop7; g < 201; g++)
+                  for (int g = a7; g < 201; g++)
                   {
                     //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) > 200)
                     //{
                     //  break;
                     //}
 
-                    for (int h = Properties.Settings.Default.Loop8; h < 201; h++)
+                    for (int h = a8; h < 201; h++)
                     {
                       //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) > 200)
                       //{
