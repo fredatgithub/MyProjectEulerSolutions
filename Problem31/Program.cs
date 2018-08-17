@@ -98,21 +98,14 @@ namespace Problem31
                       if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) == 200)
                       {
                         result31.Add($"a={a}-b={b}-c={c}-d={d}-e={e}-f={f}-g={g}-h={h}");
+                        SaveSettings(a, b, c, d, e, f, g, h);
                         counter31++;
                       }
                     }
                   }
 
                   //backup already done loops
-                  Properties.Settings.Default.Loop1 = a;
-                  Properties.Settings.Default.Loop2 = b;
-                  Properties.Settings.Default.Loop3 = c;
-                  Properties.Settings.Default.Loop4 = d;
-                  Properties.Settings.Default.Loop5 = e;
-                  Properties.Settings.Default.Loop6 = f;
-                  Properties.Settings.Default.Loop7 = 1;
-                  Properties.Settings.Default.Loop8 = 1;
-                  Properties.Settings.Default.Save();
+                 SaveSettings(a, b, c, d, e, f, 1, 1);
                 }
               }
             }
@@ -134,24 +127,22 @@ namespace Problem31
       {
         Console.WriteLine(exception);
       }
-      //while (true)
-      //{
-      //  string tmpString = string.Empty;
-      //  int tmpTotal = 0;
-      //  int tmpCounter = 1;
-      //  foreach (int number in pences)
-      //  {
-      //    while (tmpTotal < searchedValue)
-      //    {
-      //      tmpTotal += number * tmpCounter;
-      //      tmpString = $"{number} x {tmpCounter} + ";
-      //    }
-      //  }
-      //}
-
-
+      
       display("End of problems");
       Console.ReadKey();
+    }
+
+    private static void SaveSettings(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+    {
+      Properties.Settings.Default.Loop1 = a1;
+      Properties.Settings.Default.Loop2 = a2;
+      Properties.Settings.Default.Loop3 = a3;
+      Properties.Settings.Default.Loop4 = a4;
+      Properties.Settings.Default.Loop5 = a5;
+      Properties.Settings.Default.Loop6 = a6;
+      Properties.Settings.Default.Loop7 = a7;
+      Properties.Settings.Default.Loop8 = a8;
+      Properties.Settings.Default.Save();
     }
   }
 }
