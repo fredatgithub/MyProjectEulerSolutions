@@ -41,52 +41,53 @@ namespace Problem31
       // 1p cannot go higher than 200 because 200 * 1 = 200
       // so make a for loop for each coins
       ulong counter31 = 0;
-      for (int a = 1; a < 201; a++)
+
+      for (int a = Properties.Settings.Default.Loop1; a < 201; a++)
       {
 
-        for (int b = 1; b < 201; b++)
+        for (int b = Properties.Settings.Default.Loop2; b < 201; b++)
         {
           //if ((a * 200) + (b * 100) > 200)
           //{
           //  break;
           //}
 
-          for (int c = 1; c < 201; c++)
+          for (int c = Properties.Settings.Default.Loop3; c < 201; c++)
           {
             //if ((a * 200) + (b * 100) + (c * 50) > 200)
             //{
             //  break;
             //}
 
-            for (int d = 1; d < 201; d++)
+            for (int d = Properties.Settings.Default.Loop4; d < 201; d++)
             {
               //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) > 200)
               //{
               //  break;
               //}
 
-              for (int e = 1; e < 201; e++)
+              for (int e = Properties.Settings.Default.Loop5; e < 201; e++)
               {
                 //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) > 200)
                 //{
                 //  break;
                 //}
 
-                for (int f = 1; f < 201; f++)
+                for (int f = Properties.Settings.Default.Loop6; f < 201; f++)
                 {
                   //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5)  > 200)
                   //{
                   //  break;
                   //}
 
-                  for (int g = 1; g < 201; g++)
+                  for (int g = Properties.Settings.Default.Loop7; g < 201; g++)
                   {
                     //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) > 200)
                     //{
                     //  break;
                     //}
 
-                    for (int h = 1; h < 201; h++)
+                    for (int h = Properties.Settings.Default.Loop8; h < 201; h++)
                     {
                       //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) > 200)
                       //{
@@ -101,6 +102,17 @@ namespace Problem31
                       }
                     }
                   }
+
+                  //backup already done loops
+                  Properties.Settings.Default.Loop1 = a;
+                  Properties.Settings.Default.Loop2 = b;
+                  Properties.Settings.Default.Loop3 = c;
+                  Properties.Settings.Default.Loop4 = d;
+                  Properties.Settings.Default.Loop5 = e;
+                  Properties.Settings.Default.Loop6 = f;
+                  Properties.Settings.Default.Loop7 = 1;
+                  Properties.Settings.Default.Loop8 = 1;
+                  Properties.Settings.Default.Save();
                 }
               }
             }
@@ -121,7 +133,6 @@ namespace Problem31
       catch (Exception exception)
       {
         Console.WriteLine(exception);
-
       }
       //while (true)
       //{
