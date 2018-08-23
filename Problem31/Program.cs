@@ -22,6 +22,7 @@ namespace Problem31
       var pences = new List<int> { 200, 100, 50, 20, 10, 5, 2, 1 };
       var result31 = new List<string>();
       int searchedValue = 200;
+      bool newResult = false;
       // Let's calculate by hand to get an idea of the algorithm
       // By hand it would be something like
       result31.Add("1x200");
@@ -107,13 +108,20 @@ namespace Problem31
                       {
                         result31.Add($"a={a}-b={b}-c={c}-d={d}-e={e}-f={f}-g={g}-h={h}");
                         SaveSettings(a, b, c, d, e, f, g, h);
+                        SaveResults(result31);
+                        newResult = true;
                         counter31++;
                       }
                     }
                   }
 
                   //backup already done loops
-                 SaveSettings(a, b, c, d, e, f, 1, 1);
+                  SaveSettings(a, b, c, d, e, f, 1, 1);
+                  if (newResult)
+                  {
+                    SaveResults(result31);
+                    newResult = false;
+                  }
                 }
               }
             }
@@ -135,9 +143,28 @@ namespace Problem31
       {
         Console.WriteLine(exception);
       }
-      
+
       display("End of problems");
       Console.ReadKey();
+    }
+
+    private static void SaveResults(List<string> list)
+    {
+      if (list.Count == 0) return;
+      try
+      {
+        using (StreamWriter sr = new StreamWriter("result.txt"))
+        {
+          foreach (string line in list)
+          {
+            sr.WriteLine(line);
+          }
+        }
+      }
+      catch (Exception)
+      {
+        // ignore
+      }
     }
 
     private static void SaveSettings(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
