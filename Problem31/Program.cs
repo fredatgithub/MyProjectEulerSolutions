@@ -25,22 +25,22 @@ namespace Problem31
       bool newResult = false;
       // Let's calculate by hand to get an idea of the algorithm
       // By hand it would be something like
-      result31.Add("1x200");
-      result31.Add("2x100");
-      result31.Add("1x100+2x50");
-      result31.Add("1x100+5x20");
-      result31.Add("1x100+1x50+2x20+1x10");
-      result31.Add("1x100+1x50+1x20+3x10");
-      result31.Add("1x100+1x50+1x20+2x10+2x5");
-      result31.Add("1x100+1x50+1x20+2x10+1x5+2x2+1x1");
-      result31.Add("1x100+1x50+1x20+2x10+1x5+1x2+3x1");
-      result31.Add("1x100+1x50+1x20+1x10+4x5");
+      //result31.Add("1x200");
+      //result31.Add("2x100");
+      //result31.Add("1x100+2x50");
+      //result31.Add("1x100+5x20");
+      //result31.Add("1x100+1x50+2x20+1x10");
+      //result31.Add("1x100+1x50+1x20+3x10");
+      //result31.Add("1x100+1x50+1x20+2x10+2x5");
+      //result31.Add("1x100+1x50+1x20+2x10+1x5+2x2+1x1");
+      //result31.Add("1x100+1x50+1x20+2x10+1x5+1x2+3x1");
+      //result31.Add("1x100+1x50+1x20+1x10+4x5");
       List<int> divisorList = new List<int>();
       int factorMin = searchedValue / pences.Max(); // 1
       int factorMax = searchedValue / pences.Min(); // 200
       // 200p cannot go higher than 1 because 1 * 200 = 200
       // 1p cannot go higher than 200 because 200 * 1 = 200
-      // so make a for loop for each coins
+      // so make a for loop for each coins accordingly
       ulong counter31 = 0;
       int a1 = Properties.Settings.Default.Loop1;
       int a2 = Properties.Settings.Default.Loop2;
@@ -51,52 +51,52 @@ namespace Problem31
       int a7 = Properties.Settings.Default.Loop7;
       int a8 = Properties.Settings.Default.Loop8;
 
-      for (int a = a1; a < 201; a++)
+      for (int a = a1; a < 2; a++) // 200
       {
 
-        for (int b = a2; b < 201; b++)
+        for (int b = a2; b < 3; b++) // 100
         {
           //if ((a * 200) + (b * 100) > 200)
           //{
           //  break;
           //}
 
-          for (int c = a3; c < 201; c++)
+          for (int c = a3; c < 5; c++) // 50
           {
             //if ((a * 200) + (b * 100) + (c * 50) > 200)
             //{
             //  break;
             //}
 
-            for (int d = a4; d < 201; d++)
+            for (int d = a4; d < 11; d++) // 20
             {
               //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) > 200)
               //{
               //  break;
               //}
 
-              for (int e = a5; e < 201; e++)
+              for (int e = a5; e < 21; e++) // 10
               {
                 //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) > 200)
                 //{
                 //  break;
                 //}
 
-                for (int f = a6; f < 201; f++)
+                for (int f = a6; f < 41; f++) // 5
                 {
                   //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5)  > 200)
                   //{
                   //  break;
                   //}
 
-                  for (int g = a7; g < 201; g++)
+                  for (int g = a7; g < 101; g++) // 2
                   {
                     //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) > 200)
                     //{
                     //  break;
                     //}
 
-                    for (int h = a8; h < 201; h++)
+                    for (int h = a8; h < 201; h++) // 1
                     {
                       //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) > 200)
                       //{
@@ -106,7 +106,7 @@ namespace Problem31
                       Console.WriteLine($"Solution={counter31}--200=200*{a} + 100*{b} + 50*{c} + 20*{d} + 10*{e} + 5*{f} + 2*{g} + 1*{h}");
                       if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) == 200)
                       {
-                        result31.Add($"a={a}-b={b}-c={c}-d={d}-e={e}-f={f}-g={g}-h={h}");
+                        result31.Add($"200=200*{a}+100*={b}+50*{c}+20*={d}+10={e}+5*={f}+2={g}+1*={h}");
                         SaveSettings(a, b, c, d, e, f, g, h);
                         SaveResults(result31);
                         newResult = true;
@@ -116,7 +116,7 @@ namespace Problem31
                   }
 
                   //backup already done loops
-                  SaveSettings(a, b, c, d, e, f, 1, 1);
+                  SaveSettings(a, b, c, d, e, f, 0, 0);
                   if (newResult)
                   {
                     SaveResults(result31);
@@ -131,7 +131,7 @@ namespace Problem31
 
       try
       {
-        using (StreamWriter sw = new StreamWriter("result.txt"))
+        using (StreamWriter sw = new StreamWriter("result-final.txt"))
         {
           foreach (string item in result31)
           {
