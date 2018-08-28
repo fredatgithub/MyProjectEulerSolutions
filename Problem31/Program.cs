@@ -191,7 +191,7 @@ namespace Problem31
 
     private static void SaveSettings(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
     {
-      // not saved when pgm is control-C
+      // not saved when pgm is controled-C
       //Properties.Settings.Default.Loop1 = a1;
       //Properties.Settings.Default.Loop2 = a2;
       //Properties.Settings.Default.Loop3 = a3;
