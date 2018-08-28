@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Problem31
 {
-  internal class Program
+  public class Program
   {
-    private static void Main()
+    public static void Main()
     {
       Action<string> display = Console.WriteLine;
       display("---------------------------------------------------------------------");
@@ -81,7 +82,9 @@ namespace Problem31
                       Console.WriteLine($"Solution={counter31}--200=200*{a} + 100*{b} + 50*{c} + 20*{d} + 10*{e} + 5*{f} + 2*{g} + 1*{h}");
                       if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) == 200)
                       {
-                        result31.Add($"200=200*{a}+100*{b}+50*{c}+20*{d}+10*{e}+5*{f}+2*{g}+1*{h}");
+                        // format string only if not zero
+                        result31.Add(FormatResult(a, b, c, d, e, f, g, h));
+                        //result31.Add($"200=200*{a}+100*{b}+50*{c}+20*{d}+10*{e}+5*{f}+2*{g}+1*{h}");
                         SaveSettings(a, b, c, d, e, f, g, h);
                         SaveResults(result31);
                         newResult = true;
@@ -123,6 +126,54 @@ namespace Problem31
       Console.ReadKey();
     }
 
+    public static string FormatResult(int a, int b, int c, int d, int e, int f, int g, int h)
+    {
+      StringBuilder result = new StringBuilder();
+      // result31.Add($"200=200*{a}+100*{b}+50*{c}+20*{d}+10*{e}+5*{f}+2*{g}+1*{h}");
+      result.Append("200=");
+      if (a != 0)
+      {
+        result.Append($"200*{a}+");
+      }
+
+      if (b != 0)
+      {
+        result.Append($"100*{b}+");
+      }
+
+      if (c != 0)
+      {
+        result.Append($"50*{c}+");
+      }
+
+      if (d != 0)
+      {
+        result.Append($"20*{d}+");
+      }
+
+      if (e != 0)
+      {
+        result.Append($"10*{e}+");
+      }
+
+      if (f != 0)
+      {
+        result.Append($"5*{f}+");
+      }
+
+      if (g != 0)
+      {
+        result.Append($"2*{g}+");
+      }
+
+      if (h != 0)
+      {
+        result.Append($"1*{h}");
+      }
+
+      return result.ToString().TrimEnd('+');
+    }
+
     private static void CreateLoopfileIfNotExist()
     {
       if (!File.Exists(Properties.Settings.Default.LoopValuesFileName))
@@ -158,7 +209,7 @@ namespace Problem31
           }
         }
 
-        string tmpResult = lines.ToArray()[cursor - 1]; 
+        string tmpResult = lines.ToArray()[cursor - 1];
         result = int.Parse(tmpResult);
       }
       catch (Exception exception)
