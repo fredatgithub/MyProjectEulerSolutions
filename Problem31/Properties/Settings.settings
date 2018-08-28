@@ -26,5 +26,11 @@
     <Setting Name="Loop8" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="LoopValuesFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">loopValues.txt</Value>
+    </Setting>
+    <Setting Name="ResultFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">result.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -23,6 +23,7 @@ namespace Problem31
       var result31 = new List<string>();
       int searchedValue = 200;
       bool newResult = false;
+      CreateLoopfileIfNotExist();
       // Let's calculate by hand to get an idea of the algorithm
       // By hand it would be something like
       //result31.Add("1x200");
@@ -38,18 +39,28 @@ namespace Problem31
       List<int> divisorList = new List<int>();
       int factorMin = searchedValue / pences.Max(); // 1
       int factorMax = searchedValue / pences.Min(); // 200
-      // 200p cannot go higher than 1 because 1 * 200 = 200
-      // 1p cannot go higher than 200 because 200 * 1 = 200
-      // so make a for loop for each coins accordingly
+                                                    // 200p cannot go higher than 1 because 1 * 200 = 200
+                                                    // 1p cannot go higher than 200 because 200 * 1 = 200
+                                                    // so make a for loop for each coins accordingly
       ulong counter31 = 0;
-      int a1 = Properties.Settings.Default.Loop1;
-      int a2 = Properties.Settings.Default.Loop2;
-      int a3 = Properties.Settings.Default.Loop3;
-      int a4 = Properties.Settings.Default.Loop4;
-      int a5 = Properties.Settings.Default.Loop5;
-      int a6 = Properties.Settings.Default.Loop6;
-      int a7 = Properties.Settings.Default.Loop7;
-      int a8 = Properties.Settings.Default.Loop8;
+      // not saved if program is controled-C
+      //int a1 = Properties.Settings.Default.Loop1;
+      //int a2 = Properties.Settings.Default.Loop2;
+      //int a3 = Properties.Settings.Default.Loop3;
+      //int a4 = Properties.Settings.Default.Loop4;
+      //int a5 = Properties.Settings.Default.Loop5;
+      //int a6 = Properties.Settings.Default.Loop6;
+      //int a7 = Properties.Settings.Default.Loop7;
+      //int a8 = Properties.Settings.Default.Loop8;
+      //ReadLoopValues()
+      int a1 = ReadLoopValues(1);
+      int a2 = ReadLoopValues(2);
+      int a3 = ReadLoopValues(3);
+      int a4 = ReadLoopValues(4);
+      int a5 = ReadLoopValues(5);
+      int a6 = ReadLoopValues(6);
+      int a7 = ReadLoopValues(7);
+      int a8 = ReadLoopValues(8);
 
       for (int a = a1; a < 2; a++) // 200
       {
@@ -148,12 +159,63 @@ namespace Problem31
       Console.ReadKey();
     }
 
+    private static void CreateLoopfileIfNotExist()
+    {
+      if (!File.Exists(Properties.Settings.Default.LoopValuesFileName))
+      {
+        try
+        {
+          using (StreamWriter sw = new StreamWriter(Properties.Settings.Default.LoopValuesFileName))
+          {
+            for (int i = 1; i < 9; i++)
+            {
+              sw.WriteLine("0");
+            }
+          }
+        }
+        catch (Exception exception)
+        {
+          Console.WriteLine(exception.Message);
+        }
+      }
+    }
+
+    private static int ReadLoopValues(int cursor)
+    {
+      int result = 0;
+      List<string> lines = new List<string>();
+      try
+      {
+        using (StreamReader sr = new StreamReader(Properties.Settings.Default.LoopValuesFileName))
+        {
+          while (sr.Peek() >= 0)
+          {
+            lines.Add(sr.ReadLine());
+          }
+        }
+
+        string tmpResult = lines.ToArray()[cursor - 1]; 
+        result = int.Parse(tmpResult);
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine(exception.Message);
+      }
+
+      return result;
+    }
+
     private static void SaveResults(List<string> list)
     {
       if (list.Count == 0) return;
       try
       {
-        using (StreamWriter sr = new StreamWriter("result.txt"))
+        if (!File.Exists(Properties.Settings.Default.ResultFileName))
+        {
+          File.Create(Properties.Settings.Default.ResultFileName);
+        }
+
+        using (StreamWriter sr = new StreamWriter(Properties.Settings.Default.ResultFileName))
         {
           foreach (string line in list)
           {
@@ -169,15 +231,34 @@ namespace Problem31
 
     private static void SaveSettings(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
     {
-      Properties.Settings.Default.Loop1 = a1;
-      Properties.Settings.Default.Loop2 = a2;
-      Properties.Settings.Default.Loop3 = a3;
-      Properties.Settings.Default.Loop4 = a4;
-      Properties.Settings.Default.Loop5 = a5;
-      Properties.Settings.Default.Loop6 = a6;
-      Properties.Settings.Default.Loop7 = a7;
-      Properties.Settings.Default.Loop8 = a8;
-      Properties.Settings.Default.Save();
+      // not saved when pgm is control-C
+      //Properties.Settings.Default.Loop1 = a1;
+      //Properties.Settings.Default.Loop2 = a2;
+      //Properties.Settings.Default.Loop3 = a3;
+      //Properties.Settings.Default.Loop4 = a4;
+      //Properties.Settings.Default.Loop5 = a5;
+      //Properties.Settings.Default.Loop6 = a6;
+      //Properties.Settings.Default.Loop7 = a7;
+      //Properties.Settings.Default.Loop8 = a8;
+      //Properties.Settings.Default.Save();
+      try
+      {
+        using (StreamWriter sr = new StreamWriter(Properties.Settings.Default.LoopValuesFileName))
+        {
+          sr.WriteLine(a1);
+          sr.WriteLine(a2);
+          sr.WriteLine(a3);
+          sr.WriteLine(a4);
+          sr.WriteLine(a5);
+          sr.WriteLine(a6);
+          sr.WriteLine(a7);
+          sr.WriteLine(a8);
+        }
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine(exception.Message);
+      }
     }
   }
 }
