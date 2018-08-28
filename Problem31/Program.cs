@@ -64,60 +64,24 @@ namespace Problem31
 
       for (int a = a1; a < 2; a++) // 200
       {
-
         for (int b = a2; b < 3; b++) // 100
         {
-          //if ((a * 200) + (b * 100) > 200)
-          //{
-          //  break;
-          //}
-
           for (int c = a3; c < 5; c++) // 50
           {
-            //if ((a * 200) + (b * 100) + (c * 50) > 200)
-            //{
-            //  break;
-            //}
-
             for (int d = a4; d < 11; d++) // 20
             {
-              //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) > 200)
-              //{
-              //  break;
-              //}
-
               for (int e = a5; e < 21; e++) // 10
               {
-                //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) > 200)
-                //{
-                //  break;
-                //}
-
                 for (int f = a6; f < 41; f++) // 5
                 {
-                  //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5)  > 200)
-                  //{
-                  //  break;
-                  //}
-
                   for (int g = a7; g < 101; g++) // 2
                   {
-                    //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) > 200)
-                    //{
-                    //  break;
-                    //}
-
                     for (int h = a8; h < 201; h++) // 1
                     {
-                      //if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) > 200)
-                      //{
-                      //  break;
-                      //}
-
                       Console.WriteLine($"Solution={counter31}--200=200*{a} + 100*{b} + 50*{c} + 20*{d} + 10*{e} + 5*{f} + 2*{g} + 1*{h}");
                       if ((a * 200) + (b * 100) + (c * 50) + (d * 20) + (e * 10) + (f * 5) + (g * 2) + (h * 1) == 200)
                       {
-                        result31.Add($"200=200*{a}+100*={b}+50*{c}+20*={d}+10={e}+5*={f}+2={g}+1*={h}");
+                        result31.Add($"200=200*{a}+100*{b}+50*{c}+20*{d}+10*{e}+5*{f}+2*{g}+1*{h}");
                         SaveSettings(a, b, c, d, e, f, g, h);
                         SaveResults(result31);
                         newResult = true;
@@ -146,7 +110,7 @@ namespace Problem31
         {
           foreach (string item in result31)
           {
-            sw.WriteLine($"200 = {item}");
+            sw.WriteLine(item);
           }
         }
       }
@@ -210,12 +174,8 @@ namespace Problem31
       if (list.Count == 0) return;
       try
       {
-        if (!File.Exists(Properties.Settings.Default.ResultFileName))
-        {
-          File.Create(Properties.Settings.Default.ResultFileName);
-        }
-
-        using (StreamWriter sr = new StreamWriter(Properties.Settings.Default.ResultFileName))
+        bool append = true;
+        using (StreamWriter sr = new StreamWriter(Properties.Settings.Default.ResultFileName, append))
         {
           foreach (string line in list)
           {
@@ -223,9 +183,9 @@ namespace Problem31
           }
         }
       }
-      catch (Exception)
+      catch (Exception exception)
       {
-        // ignore
+        Console.WriteLine(exception.Message);
       }
     }
 
