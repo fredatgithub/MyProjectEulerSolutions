@@ -173,7 +173,7 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const int sourceb = 0;  // 100;
       const int sourcec = 0;  // 50;
       const int sourced = 0;  // 20;
-      const int sourcee = 0; // 10;
+      const int sourcee = 0;  // 10;
       const int sourcef = 0;  // 5;
       const int sourceg = 0;  // 2;
       const int sourceh = 0;  // 1;
