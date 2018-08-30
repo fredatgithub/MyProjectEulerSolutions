@@ -41,13 +41,13 @@ namespace UnitTestProjectMyProjectEulerSolutions
     [TestMethod]
     public void TestMethod_4_times_50()
     {
-      const int sourcea = 0 ;// 200;
-      const int sourceb = 0 ;// 100;
-      const int sourcec = 4 ;// 50;
-      const int sourced = 0 ;// 20;
-      const int sourcee = 0 ;// 10;
-      const int sourcef = 0 ;// 5;
-      const int sourceg = 0 ;// 2;
+      const int sourcea = 0;// 200;
+      const int sourceb = 0;// 100;
+      const int sourcec = 4;// 50;
+      const int sourced = 0;// 20;
+      const int sourcee = 0;// 10;
+      const int sourcef = 0;// 5;
+      const int sourceg = 0;// 2;
       const int sourceh = 0; // 1;
       const string expected = "200=50*4";
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
@@ -178,6 +178,22 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const int sourceg = 0;  // 2;
       const int sourceh = 0;  // 1;
       const string expected = "200=";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_one_of_each_factor()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 1;  // 100;
+      const int sourcec = 1;  // 50;
+      const int sourced = 1;  // 20;
+      const int sourcee = 1;  // 10;
+      const int sourcef = 1;  // 5;
+      const int sourceg = 1;  // 2;
+      const int sourceh = 13;  // 1;
+      const string expected = "200=100*1+50*1+20*1+10*1+5*1+2*1+1*13";
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
