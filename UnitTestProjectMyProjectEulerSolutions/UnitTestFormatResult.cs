@@ -197,5 +197,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_two_of_each_factor()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 2;  // 50;
+      const int sourced = 2;  // 20;
+      const int sourcee = 2;  // 10;
+      const int sourcef = 2;  // 5;
+      const int sourceg = 2;  // 2;
+      const int sourceh = 28;  // 1;
+      const string expected = "200=50*2+20*2+10*2+5*2+2*2+1*28";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
