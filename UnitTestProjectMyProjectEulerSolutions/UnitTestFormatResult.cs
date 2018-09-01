@@ -213,5 +213,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_three_of_each()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 1;  // 50;
+      const int sourced = 3;  // 20;
+      const int sourcee = 3;  // 10;
+      const int sourcef = 3;  // 5;
+      const int sourceg = 3;  // 2;
+      const int sourceh = 39;  // 1;
+      const string expected = "200=50*1+20*3+10*3+5*3+2*3+1*39";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
