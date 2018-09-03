@@ -245,5 +245,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_five_of_each()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 5;  // 20;
+      const int sourcee = 5;  // 10;
+      const int sourcef = 5;  // 5;
+      const int sourceg = 5;  // 2;
+      const int sourceh = 15;  // 1;
+      const string expected = "200=20*5+10*5+5*5+2*5+1*15";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
