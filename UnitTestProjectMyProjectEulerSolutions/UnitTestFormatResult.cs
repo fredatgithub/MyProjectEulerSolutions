@@ -261,5 +261,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_six_of_each()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 6;  // 20;
+      const int sourcee = 6;  // 10;
+      const int sourcef = 6;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=20*6+10*6+5*6";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
