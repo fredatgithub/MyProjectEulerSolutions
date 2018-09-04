@@ -295,7 +295,7 @@ namespace UnitTestProjectMyProjectEulerSolutions
     }
     
     [TestMethod]
-    public void TestMethod_seven_of_each_one_twenty()
+    public void TestMethod_seven_of_each_top_max()
     {
       const int sourcea = 0;  // 200;
       const int sourceb = 0;  // 100;
