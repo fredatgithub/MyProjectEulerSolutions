@@ -327,7 +327,7 @@ namespace UnitTestProjectMyProjectEulerSolutions
     }
 
     [TestMethod]
-    public void TestMethod_eight_of_each__take_two()
+    public void TestMethod_eight_of_each_take_two()
     {
       const int sourcea = 0;  // 200;
       const int sourceb = 0;  // 100;
@@ -338,6 +338,22 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const int sourceg = 8;  // 2;
       const int sourceh = 24;  // 1;
       const string expected = "200=20*8+2*8+1*24";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_eight_of_each_take_one()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 8;  // 20;
+      const int sourcee = 0;  // 10;
+      const int sourcef = 0;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 40;  // 1;
+      const string expected = "200=20*8+1*40";
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
