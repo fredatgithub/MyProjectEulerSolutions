@@ -357,5 +357,69 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_nine_of_each_take_five()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 9;  // 20;
+      const int sourcee = 0;  // 10;
+      const int sourcef = 4;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=20*9+5*4";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_nine_of_each_take_ten()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 9;  // 20;
+      const int sourcee = 1;  // 10;
+      const int sourcef = 2;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=20*9+10*1+5*2";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_nine_of_each_take_two()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 9;  // 20;
+      const int sourcee = 0;  // 10;
+      const int sourcef = 2;  // 5;
+      const int sourceg = 5;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=20*9+5*2+2*5";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_nine_of_each_take_one()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 9;  // 20;
+      const int sourcee = 0;  // 10;
+      const int sourcef = 2;  // 5;
+      const int sourceg = 2;  // 2;
+      const int sourceh = 6;  // 1;
+      const string expected = "200=20*9+5*2+2*2+1*6";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
