@@ -421,5 +421,53 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ten_of_each()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 10;  // 20;
+      const int sourcee = 0;  // 10;
+      const int sourcef = 0;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=20*10";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ten_of_each_take_five()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 0;  // 20;
+      const int sourcee = 10;  // 10;
+      const int sourcef = 20;  // 5;
+      const int sourceg = 0;  // 2;
+      const int sourceh = 0;  // 1;
+      const string expected = "200=10*10+5*20";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ten_of_each_take_two()
+    {
+      const int sourcea = 0;  // 200;
+      const int sourceb = 0;  // 100;
+      const int sourcec = 0;  // 50;
+      const int sourced = 0;  // 20;
+      const int sourcee = 10;  // 10;
+      const int sourcef = 19;  // 5;
+      const int sourceg = 2;  // 2;
+      const int sourceh = 1;  // 1;
+      const string expected = "200=10*10+5*19+2*2+1*1";
+      string result = Program.FormatResult(sourcea, sourceb, sourcec, sourced, sourcee, sourcef, sourceg, sourceh);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
