@@ -57,21 +57,21 @@ namespace CreateUnitTestFile
         unitTestFile.AppendLine();
         unitTestFile.Append("{");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int a = {GetMultiplier(line, 1)};");
+        unitTestFile.Append($"const int a = {(HasMultiplier(line, 200) ? GetMultiplier(line, 200) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int b = {GetMultiplier(line, 2)};");
+        unitTestFile.Append($"const int b = {(HasMultiplier(line, 100) ? GetMultiplier(line, 100) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int c = {GetMultiplier(line, 3)};");
+        unitTestFile.Append($"const int c = {(HasMultiplier(line, 50) ? GetMultiplier(line, 50) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int d = {GetMultiplier(line, 4)};");
+        unitTestFile.Append($"const int d = {(HasMultiplier(line, 20) ? GetMultiplier(line, 20) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int e = {GetMultiplier(line, 5)};");
+        unitTestFile.Append($"const int e = {(HasMultiplier(line, 10) ? GetMultiplier(line, 10) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int f = {GetMultiplier(line, 6)};");
+        unitTestFile.Append($"const int f = {(HasMultiplier(line, 5) ? GetMultiplier(line, 5) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int g = {GetMultiplier(line, 7)};");
+        unitTestFile.Append($"const int g = {(HasMultiplier(line, 2) ? GetMultiplier(line, 2) : "0")};");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"const int h = {GetMultiplier(line, 8)};");
+        unitTestFile.Append($"const int h = {(HasMultiplier(line, 1) ? GetMultiplier(line, 1) : "0")};");
         unitTestFile.AppendLine();
         unitTestFile.Append($"const string expected = \"{line}\";");
         unitTestFile.AppendLine();
@@ -107,14 +107,24 @@ namespace CreateUnitTestFile
       }
     }
 
-    public static string GetMultiplier(string line, int position)
+    public static string GetMultiplier(string line, int number)
     {
       string result = string.Empty;
       //200=100*1+20*2+10*1+5*2+2*25+1*10
       line = line.Substring(4, line.Length - 4);
       string[] tmpSubPlus = line.Split('+');
-      result = tmpSubPlus[0];
+      for (int i = 0; i <= tmpSubPlus.Length - 1; i++)
+      {
+        if (tmpSubPlus[i].Contains($"{number}*"))
+        {
+          result = tmpSubPlus[i].Split('*')[1];
+          break;
+        }
+      }
+
       return result;
     }
+
+    public static bool HasMultiplier(string line, int number) => line.Contains($"{number}*");
   }
 }
