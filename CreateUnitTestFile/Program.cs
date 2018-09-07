@@ -105,6 +105,9 @@ namespace CreateUnitTestFile
       {
         Console.WriteLine(exception.Message);
       }
+
+      Console.WriteLine("Press any key to exit:");
+      Console.ReadKey();
     }
 
     public static string GetMultiplier(string line, int number)
