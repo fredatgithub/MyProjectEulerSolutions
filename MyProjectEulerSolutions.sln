@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormProblem31", "WinForm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateUnitTestFile", "CreateUnitTestFile\CreateUnitTestFile.csproj", "{4CD4E1D6-2D1D-469D-8757-29C162695D4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectCreateUnitTestFile", "UnitTestProjectCreateUnitTestFile\UnitTestProjectCreateUnitTestFile.csproj", "{88F2F4AB-DE0A-4C9A-A982-4CBA571A76B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4CD4E1D6-2D1D-469D-8757-29C162695D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD4E1D6-2D1D-469D-8757-29C162695D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD4E1D6-2D1D-469D-8757-29C162695D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F2F4AB-DE0A-4C9A-A982-4CBA571A76B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F2F4AB-DE0A-4C9A-A982-4CBA571A76B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F2F4AB-DE0A-4C9A-A982-4CBA571A76B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F2F4AB-DE0A-4C9A-A982-4CBA571A76B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
