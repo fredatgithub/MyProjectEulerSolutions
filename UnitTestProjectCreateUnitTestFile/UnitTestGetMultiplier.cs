@@ -17,6 +17,16 @@ namespace UnitTestProjectCreateUnitTestFile
     }
 
     [TestMethod]
+    public void TestMethod_200()
+    {
+      const string sourceLine = "200=200*1";
+      const int sourcePosition = 200;
+      const string expected = "1";
+      string result = Program.GetMultiplier(sourceLine, sourcePosition);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_100()
     {
       const string sourceLine = "200=100*1+20*2+10*1+5*2+2*25+1*10";
