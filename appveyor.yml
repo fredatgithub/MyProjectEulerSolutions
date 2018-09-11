@@ -38,6 +38,7 @@ build:
   #verbosity: quiet|minimal|normal|detailed
   verbosity: minimal
   parallel: true  
+  project: MyProjectEulerSolutions.sln
 
 # scripts to run before build
 before_build: 
