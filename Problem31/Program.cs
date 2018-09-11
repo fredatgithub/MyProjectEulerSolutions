@@ -225,7 +225,7 @@ namespace Problem31
       if (list.Count == 0) return;
       try
       {
-        bool append = false;
+        bool append = true;
         using (StreamWriter sr = new StreamWriter(Properties.Settings.Default.ResultFileName, append))
         {
           foreach (string line in list)
