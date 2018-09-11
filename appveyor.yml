@@ -24,7 +24,7 @@ platform:
 # build debug in case you use #IfDebug
 configuration:
   - Debug
-  - Release
+  #- Release
 
 install:
   # by default, all script lines are interpreted as batch
