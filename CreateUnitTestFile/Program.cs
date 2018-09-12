@@ -11,21 +11,14 @@ namespace CreateUnitTestFile
     {
       // read the result file and then create a unit test file
       string fileName = "result.txt";
+      string fileNameToWrite = "unitTest";
+      int fileNameToWriteCounter = 2;
+      int numberOfLinePerUnitTestFile = 500;
+
+
       List<string> fileLines = new List<string>();
-      try
-      {
-        using (StreamReader sr = new  StreamReader(fileName))
-        {
-          while (!sr.EndOfStream)
-          {
-            fileLines.Add(sr.ReadLine());
-          }
-        }
-      }
-      catch (Exception exception)
-      {
-        Console.WriteLine(exception.Message);
-      }
+      fileLines = ReadFile(fileName);
+     
 
       // create a unit test file
       StringBuilder unitTestFile = new StringBuilder();
@@ -108,6 +101,28 @@ namespace CreateUnitTestFile
 
       Console.WriteLine("Press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static List<string> ReadFile(string fileName)
+    {
+      List<string> result = new List<string>();
+
+      try
+      {
+        using (StreamReader sr = new StreamReader(fileName))
+        {
+          while (!sr.EndOfStream)
+          {
+            result.Add(sr.ReadLine());
+          }
+        }
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine(exception.Message);
+      }
+
+      return result;
     }
 
     public static string GetMultiplier(string line, int number)
