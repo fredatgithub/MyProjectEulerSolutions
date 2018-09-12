@@ -53,7 +53,7 @@ namespace CreateUnitTestFile
         // 200=2*1+1*198
         unitTestFile.Append("[TestMethod]");
         unitTestFile.AppendLine();
-        unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4)}");
+        unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4).Replace("*", "_multiply_by_")}()");
         unitTestFile.AppendLine();
         unitTestFile.Append("{");
         unitTestFile.AppendLine();
