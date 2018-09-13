@@ -13,14 +13,15 @@ namespace CreateUnitTestFile
       string fileName = "result.txt";
       string fileNameToWrite = "unitTest";
       int fileNameToWriteCounter = 2;
-      int numberOfLinePerUnitTestFile = 500;
-
+      int numberOfUnitTestPerFile = 10000;
+      int counterInnerLoop = 0;
 
       List<string> fileLines = new List<string>();
       fileLines = ReadFile(fileName);
      
 
       // create a unit test file
+      // header
       StringBuilder unitTestFile = new StringBuilder();
       string unitTestFileName = string.Empty;
       unitTestFile.Append("using Microsoft.VisualStudio.TestTools.UnitTesting;");
@@ -34,7 +35,7 @@ namespace CreateUnitTestFile
       unitTestFile.AppendLine();
       unitTestFile.Append("[TestClass]");
       unitTestFile.AppendLine();
-      unitTestFile.Append("public class UnitTestFormatResult2");
+      unitTestFile.Append($"public class UnitTestFormatResult{fileNameToWriteCounter}");
       unitTestFile.AppendLine();
       unitTestFile.Append("{");
       unitTestFile.AppendLine();
@@ -43,6 +44,15 @@ namespace CreateUnitTestFile
 
       foreach (string line in fileLines)
       {
+        counterInnerLoop++;
+        if (counterInnerLoop % numberOfUnitTestPerFile == 0)
+        {
+          // we write the file and create another new unit test file
+        }
+        else
+        {
+
+        }
         // 200=2*1+1*198
         unitTestFile.Append("[TestMethod]");
         unitTestFile.AppendLine();
