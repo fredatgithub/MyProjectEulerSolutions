@@ -13,7 +13,7 @@ namespace CreateUnitTestFile
       string fileName = "result.txt";
       //string fileNameToWrite = "unitTest";
       int fileNameToWriteCounter = 2;
-      int numberOfUnitTestPerFile = 10000;
+      int numberOfUnitTestPerFile = 5000;
       int counterInnerLoop = 1;
       // read the result file
       List<string> fileLines = ReadFile(fileName);
@@ -97,12 +97,12 @@ namespace CreateUnitTestFile
       // save the file
       try
       {
-        using (StreamWriter sw = new StreamWriter($"unitTest{fileNumber}.cs"))
+        using (StreamWriter sw = new StreamWriter($"UnitTestFormatResult{fileNumber}.cs"))
         {
           sw.WriteLine(fileToBeWrittenUnitFile);
         }
 
-        Console.WriteLine($"Unit file: unitTest{fileNumber}.cs written correctly");
+        Console.WriteLine($"Unit file: UnitTestFormatResult{fileNumber}.cs written correctly");
       }
       catch (Exception exception)
       {
@@ -113,7 +113,6 @@ namespace CreateUnitTestFile
     private static string AddFooter()
     {
       StringBuilder unitTestFile = new StringBuilder();
-      unitTestFile.AppendLine();
       unitTestFile.Append("}");
       unitTestFile.AppendLine();
       unitTestFile.Append("}");

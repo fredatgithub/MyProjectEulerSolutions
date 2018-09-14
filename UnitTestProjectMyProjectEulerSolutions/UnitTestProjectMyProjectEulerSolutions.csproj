@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="UnitTestFormatResult.cs" />
     <Compile Include="UnitTestGetSeries14.cs" />
     <Compile Include="UnitTestFunctions.cs" />
