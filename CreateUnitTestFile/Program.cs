@@ -14,7 +14,7 @@ namespace CreateUnitTestFile
       //string fileNameToWrite = "unitTest";
       int fileNameToWriteCounter = 2;
       int numberOfUnitTestPerFile = 10000;
-      int counterInnerLoop = 0;
+      int counterInnerLoop = 1;
       // read the result file
       List<string> fileLines = ReadFile(fileName);
       // create a unit test file
@@ -27,18 +27,20 @@ namespace CreateUnitTestFile
         {
           // we write the file and create another new unit test file
           // adding footer to the file
-          fileToBeWrittenUnitFile = AddFooter();
+          fileToBeWrittenUnitFile += AddFooter();
           WriteFile(fileToBeWrittenUnitFile, fileNameToWriteCounter);
 
           //increase counter for next unit test file
           fileNameToWriteCounter++;
           // delete file content and create a new one with header
           fileToBeWrittenUnitFile = GetHeader(fileNameToWriteCounter);
-          fileToBeWrittenUnitFile = AddUnitTest(line);
+          fileToBeWrittenUnitFile += AddUnitTest(line);
+          counterInnerLoop++;
         }
         else
         {
-          fileToBeWrittenUnitFile = AddUnitTest(line);
+          fileToBeWrittenUnitFile += AddUnitTest(line);
+          counterInnerLoop++;
         }
       }
 
