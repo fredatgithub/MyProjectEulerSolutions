@@ -50,6 +50,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UnitTestFormatResult.cs" />
+    <Compile Include="UnitTestFormatResult10.cs" />
+    <Compile Include="UnitTestFormatResult11.cs" />
+    <Compile Include="UnitTestFormatResult12.cs" />
+    <Compile Include="UnitTestFormatResult13.cs" />
+    <Compile Include="UnitTestFormatResult14.cs" />
+    <Compile Include="UnitTestFormatResult15.cs" />
+    <Compile Include="UnitTestFormatResult16.cs" />
+    <Compile Include="UnitTestFormatResult2.cs" />
+    <Compile Include="UnitTestFormatResult3.cs" />
+    <Compile Include="UnitTestFormatResult4.cs" />
+    <Compile Include="UnitTestFormatResult5.cs" />
+    <Compile Include="UnitTestFormatResult6.cs" />
+    <Compile Include="UnitTestFormatResult7.cs" />
+    <Compile Include="UnitTestFormatResult8.cs" />
+    <Compile Include="UnitTestFormatResult9.cs" />
     <Compile Include="UnitTestGetSeries14.cs" />
     <Compile Include="UnitTestFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
