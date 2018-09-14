@@ -45,8 +45,10 @@ namespace CreateUnitTestFile
       }
 
       // writing the file at the end
-      fileToBeWrittenUnitFile = AddFooter();
+      fileToBeWrittenUnitFile += AddFooter();
       WriteFile(fileToBeWrittenUnitFile, fileNameToWriteCounter);
+      //free memory
+      fileToBeWrittenUnitFile = string.Empty;
 
       Console.WriteLine("Press any key to exit:");
       Console.ReadKey();
@@ -58,7 +60,7 @@ namespace CreateUnitTestFile
       // 200=2*1+1*198
       unitTestFile.Append("[TestMethod]");
       unitTestFile.AppendLine();
-      unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4).Replace("*", "_multiply_by_")}()");
+      unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4).Replace("*", "_multiply_by_").Replace("+", "_plus_")}()");
       unitTestFile.AppendLine();
       unitTestFile.Append("{");
       unitTestFile.AppendLine();
@@ -100,7 +102,7 @@ namespace CreateUnitTestFile
           sw.WriteLine(fileToBeWrittenUnitFile);
         }
 
-        Console.WriteLine("unit file written correctly");
+        Console.WriteLine($"Unit file: unitTest{fileNumber}.cs written correctly");
       }
       catch (Exception exception)
       {
