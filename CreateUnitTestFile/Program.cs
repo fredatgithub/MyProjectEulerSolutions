@@ -29,6 +29,7 @@ namespace CreateUnitTestFile
           // adding footer to the file
           fileToBeWrittenUnitFile = AddFooter();
           WriteFile(fileToBeWrittenUnitFile, fileNameToWriteCounter);
+
           //increase counter for next unit test file
           fileNameToWriteCounter++;
           // delete file content and create a new one with header
@@ -40,6 +41,10 @@ namespace CreateUnitTestFile
           fileToBeWrittenUnitFile = AddUnitTest(line);
         }
       }
+
+      // writing the file at the end
+      fileToBeWrittenUnitFile = AddFooter();
+      WriteFile(fileToBeWrittenUnitFile, fileNameToWriteCounter);
 
       Console.WriteLine("Press any key to exit:");
       Console.ReadKey();
