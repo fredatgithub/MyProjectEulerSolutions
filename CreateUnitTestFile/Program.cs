@@ -11,16 +11,109 @@ namespace CreateUnitTestFile
     {
       // read the result file and then create a unit test file
       string fileName = "result.txt";
-      string fileNameToWrite = "unitTest";
+      //string fileNameToWrite = "unitTest";
       int fileNameToWriteCounter = 2;
       int numberOfUnitTestPerFile = 10000;
       int counterInnerLoop = 0;
-
-      List<string> fileLines = new List<string>();
-      fileLines = ReadFile(fileName);
-     
-
+      // read the result file
+      List<string> fileLines = ReadFile(fileName);
       // create a unit test file
+      string fileToBeWrittenUnitFile = GetHeader(fileNameToWriteCounter);
+
+      // looping through the result file
+      foreach (string line in fileLines)
+      {
+        if (counterInnerLoop % numberOfUnitTestPerFile == 0)
+        {
+          // we write the file and create another new unit test file
+          // adding footer to the file
+          fileToBeWrittenUnitFile = AddFooter();
+          WriteFile(fileToBeWrittenUnitFile, fileNameToWriteCounter);
+          //increase counter for next unit test file
+          fileNameToWriteCounter++;
+          // delete file content and create a new one with header
+          fileToBeWrittenUnitFile = GetHeader(fileNameToWriteCounter);
+          fileToBeWrittenUnitFile = AddUnitTest(line);
+        }
+        else
+        {
+          fileToBeWrittenUnitFile = AddUnitTest(line);
+        }
+      }
+
+      Console.WriteLine("Press any key to exit:");
+      Console.ReadKey();
+    }
+
+    private static string AddUnitTest(string line)
+    {
+      StringBuilder unitTestFile = new StringBuilder();
+      // 200=2*1+1*198
+      unitTestFile.Append("[TestMethod]");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4).Replace("*", "_multiply_by_")}()");
+      unitTestFile.AppendLine();
+      unitTestFile.Append("{");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int a = {(HasMultiplier(line, 200) ? GetMultiplier(line, 200) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int b = {(HasMultiplier(line, 100) ? GetMultiplier(line, 100) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int c = {(HasMultiplier(line, 50) ? GetMultiplier(line, 50) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int d = {(HasMultiplier(line, 20) ? GetMultiplier(line, 20) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int e = {(HasMultiplier(line, 10) ? GetMultiplier(line, 10) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int f = {(HasMultiplier(line, 5) ? GetMultiplier(line, 5) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int g = {(HasMultiplier(line, 2) ? GetMultiplier(line, 2) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const int h = {(HasMultiplier(line, 1) ? GetMultiplier(line, 1) : "0")};");
+      unitTestFile.AppendLine();
+      unitTestFile.Append($"const string expected = \"{line}\";");
+      unitTestFile.AppendLine();
+      unitTestFile.Append("string result = Program.FormatResult(a, b, c, d, e, f, g, h);");
+      unitTestFile.AppendLine();
+      unitTestFile.Append("Assert.AreEqual(result, expected);");
+      unitTestFile.AppendLine();
+      unitTestFile.Append("}");
+      unitTestFile.AppendLine();
+      unitTestFile.AppendLine();
+      return unitTestFile.ToString();
+    }
+
+    private static void WriteFile(string fileToBeWrittenUnitFile, int fileNumber)
+    {
+      // save the file
+      try
+      {
+        using (StreamWriter sw = new StreamWriter($"unitTest{fileNumber}.cs"))
+        {
+          sw.WriteLine(fileToBeWrittenUnitFile);
+        }
+
+        Console.WriteLine("unit file written correctly");
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine(exception.Message);
+      }
+    }
+
+    private static string AddFooter()
+    {
+      StringBuilder unitTestFile = new StringBuilder();
+      unitTestFile.AppendLine();
+      unitTestFile.Append("}");
+      unitTestFile.AppendLine();
+      unitTestFile.Append("}");
+
+      return unitTestFile.ToString();
+    }
+
+    private static string GetHeader(int fileNameToWriteCounter)
+    {
       // header
       StringBuilder unitTestFile = new StringBuilder();
       string unitTestFileName = string.Empty;
@@ -39,78 +132,7 @@ namespace CreateUnitTestFile
       unitTestFile.AppendLine();
       unitTestFile.Append("{");
       unitTestFile.AppendLine();
-     
-      // looping through the result file
-
-      foreach (string line in fileLines)
-      {
-        counterInnerLoop++;
-        if (counterInnerLoop % numberOfUnitTestPerFile == 0)
-        {
-          // we write the file and create another new unit test file
-        }
-        else
-        {
-
-        }
-        // 200=2*1+1*198
-        unitTestFile.Append("[TestMethod]");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"public void TestMethod_{line.Substring(4, line.ToString().Length - 4).Replace("*", "_multiply_by_")}()");
-        unitTestFile.AppendLine();
-        unitTestFile.Append("{");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int a = {(HasMultiplier(line, 200) ? GetMultiplier(line, 200) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int b = {(HasMultiplier(line, 100) ? GetMultiplier(line, 100) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int c = {(HasMultiplier(line, 50) ? GetMultiplier(line, 50) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int d = {(HasMultiplier(line, 20) ? GetMultiplier(line, 20) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int e = {(HasMultiplier(line, 10) ? GetMultiplier(line, 10) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int f = {(HasMultiplier(line, 5) ? GetMultiplier(line, 5) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int g = {(HasMultiplier(line, 2) ? GetMultiplier(line, 2) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const int h = {(HasMultiplier(line, 1) ? GetMultiplier(line, 1) : "0")};");
-        unitTestFile.AppendLine();
-        unitTestFile.Append($"const string expected = \"{line}\";");
-        unitTestFile.AppendLine();
-        unitTestFile.Append("string result = Program.FormatResult(a, b, c, d, e, f, g, h);");
-        unitTestFile.AppendLine();
-        unitTestFile.Append("Assert.AreEqual(result, expected);");
-        unitTestFile.AppendLine();
-        unitTestFile.Append("}");
-        unitTestFile.AppendLine();
-        unitTestFile.AppendLine();
-      }
-
-      unitTestFile.AppendLine();
-      unitTestFile.Append("}");
-      unitTestFile.AppendLine();
-      unitTestFile.Append("}");
-
-      unitTestFileName = unitTestFile.ToString();
-      unitTestFile.Clear();
-      // save the file
-      try
-      {
-        using (StreamWriter sw = new StreamWriter("unitTest.cs"))
-        {
-          sw.WriteLine(unitTestFileName);
-        }
-
-        Console.WriteLine("unit file written correctly");
-      }
-      catch (Exception exception)
-      {
-        Console.WriteLine(exception.Message);
-      }
-
-      Console.WriteLine("Press any key to exit:");
-      Console.ReadKey();
+      return unitTestFile.ToString();
     }
 
     private static List<string> ReadFile(string fileName)
