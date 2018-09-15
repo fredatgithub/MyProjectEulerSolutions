@@ -533,5 +533,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       string result = Program.FormatResult(a, b, c, d, e, f, g, h);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_thirteen_of_each_3()
+    {
+      const int a = 0;  // 200;
+      const int b = 0;  // 100;
+      const int c = 0;  // 50;
+      const int d = 0;  // 20;
+      const int e = 13;  // 10;
+      const int f = 12;  // 5;
+      const int g = 5;  // 2;
+      const int h = 0;  // 1;
+      const string expected = "200=10*13+5*12+2*5";
+      string result = Program.FormatResult(a, b, c, d, e, f, g, h);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
