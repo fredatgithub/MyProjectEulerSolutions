@@ -897,7 +897,7 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const int f = 29;   // 5;
       const int g = 27;   // 2;
       const int h = 1;    // 1;
-      const string expected = "200=5*29+2*28+1*1";
+      const string expected = "200=5*29+2*27+1*1";
       string result = Program.FormatResult(a, b, c, d, e, f, g, h);
       Assert.AreEqual(result, expected);
     }
