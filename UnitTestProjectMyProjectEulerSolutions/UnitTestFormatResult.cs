@@ -1061,5 +1061,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const string expected = "200=5*39+2*2+1*1";
       Assert.AreEqual(result, expected);
     }
+    
+    [TestMethod]
+    public void TestMethod_thirty_fourty()
+    {
+      const int a = 0;    // 200;
+      const int b = 0;    // 100;
+      const int c = 0;    // 50;
+      const int d = 0;    // 20;
+      const int e = 0;    // 10;
+      const int f = 40;   // 5;
+      const int g = 0;    // 2;
+      const int h = 0;    // 1;
+      string result = Program.FormatResult(a, b, c, d, e, f, g, h);
+      const string expected = "200=5*40";
+      Assert.AreEqual(result, expected);
+    }
   }
 }
