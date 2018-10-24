@@ -1125,5 +1125,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const string expected = "200=2*43+1*114";
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_fourty_four()
+    {
+      const int a = 0;    // 200;
+      const int b = 0;    // 100;
+      const int c = 0;    // 50;
+      const int d = 0;    // 20;
+      const int e = 0;    // 10;
+      const int f = 0;    // 5;
+      const int g = 44;   // 2;
+      const int h = 112;  // 1;
+      string result = Program.FormatResult(a, b, c, d, e, f, g, h);
+      const string expected = "200=2*44+1*112";
+      Assert.AreEqual(result, expected);
+    }
   }
 }
