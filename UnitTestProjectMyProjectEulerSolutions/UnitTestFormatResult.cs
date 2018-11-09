@@ -1349,5 +1349,21 @@ namespace UnitTestProjectMyProjectEulerSolutions
       const string expected = "200=2*57+1*86";
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_fivety_eight()
+    {
+      const int a = 0;    // 200;
+      const int b = 0;    // 100;
+      const int c = 0;    // 50;
+      const int d = 0;    // 20;
+      const int e = 0;    // 10;
+      const int f = 0;    // 5;
+      const int g = 58;   // 2;
+      const int h = 84;  // 1;
+      string result = Program.FormatResult(a, b, c, d, e, f, g, h);
+      const string expected = "200=2*58+1*84";
+      Assert.AreEqual(result, expected);
+    }
   }
 }
